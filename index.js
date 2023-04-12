@@ -1,5 +1,7 @@
+import dotenv from "dotenv";
+dotenv.config();
 import generateResponse from "./lib/generateResponse.js";
-import promptSync from 'prompt-sync';
+import promptSync from "prompt-sync";
 
 const prompt = promptSync();
 
@@ -9,10 +11,10 @@ while (true) {
   const question = prompt("Ask a question >");
   const answer = await generateResponse({
     prompt: question,
-    history: conversationHistory
+    history: conversationHistory,
   });
 
-  console.log(`Amjad Masad: ${answer}\n`);
-  
-  conversationHistory.push(`Human: ${question}`, `Amjad Masad: ${answer}`)
+  console.log(`GPT Bot: ${answer}\n`);
+
+  conversationHistory.push(`Human: ${question}`, `GPT Bot: ${answer}`);
 }
